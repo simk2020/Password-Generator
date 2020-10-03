@@ -16,11 +16,12 @@ var numericChar = ('0123456789'.split(''));
 console.log (numericChar);
 
 // created varibale special to store an array of special.
-var specialChar = (' !"#$%&()*+,-./:;<=>?@[\]^_`{|}~'.split(''));
+var specialChar = ('!"#$%&()*+,-./:;<=>?@[\]^_`{|}~'.split(''));
 console.log (specialChar);
 
 function generatePassword() {
   var passArray = [];
+  var gCharArray = [];
 
   // welcome message alert.
   alert ("Welcome to the Password Generator. Please click on Generate Password to get started")
@@ -45,6 +46,8 @@ function generatePassword() {
   // if lower case is true, than array of lowerCase gets ADDED to the passward array variable.
   if (lowerCase) {
     passArray = passArray.concat(lowerCaseChar);
+    gCharArray.push(lowerCaseChar[Math.floor(Math.random() * lowerCaseChar.length)])
+
      // Display in console
     console.log (passArray);
   }
@@ -52,7 +55,7 @@ function generatePassword() {
   // if upper case is true, than array of uppercase gets ADDED to the passward array variable. 
   if (upperCase) {
     passArray = passArray.concat(upperCaseChar);
-    
+    gCharArray.push(upperCaseChar[Math.floor(Math.random() * upperCaseChar.length)])
     // Display in console
     console.log (passArray);
   }
@@ -60,6 +63,7 @@ function generatePassword() {
   // if numeric is true, than array of numeric gets ADDED to the passward array variable.
   if (numeric) {
     passArray = passArray.concat(numericChar);
+    gCharArray.push(numericChar[Math.floor(Math.random() * numericChar.length)])
     // Display in console
     console.log (passArray);
   }
@@ -67,22 +71,28 @@ function generatePassword() {
   // if special is true, than array of numeric gets ADDED to the passward array variable.
   if (special){  
   passArray = passArray.concat(specialChar);
+  gCharArray.push(specialChar[Math.floor(Math.random() * specialChar.length)])
   // Display in console
   console.log (passArray);
   }
 
-  var newPassword = "";
+  console.log (gCharArray)
+
+  var newPassword = [];
 
 // Generate a random number
   for (var i = 0; i < length; i++) {
-    newPassword = newPassword + passArray [Math.floor(Math.random() * passArray.length)]
+    newPassword.push (passArray [Math.floor(Math.random() * passArray.length)])
+  }
+
+  for (var i = 0; i < gCharArray.length; i++) {
+    newPassword [i] = gCharArray [i]
   }
 
   console.log (newPassword)
-  return newPassword;
+  return newPassword.join ("");
 
 }
-
 
 // Write password to the #password input
 function writePassword() {
