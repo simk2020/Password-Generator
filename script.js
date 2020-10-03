@@ -4,20 +4,20 @@
 var generateBtn = document.querySelector("#generate");
 
 // created variable lowerCase to store an array of lowercase characters.
-var lowerCase = ("abcdefghijklmnopqrstuvwxyz".split(''));
-console.log (lowerCase);
+var lowerCaseChar = ("abcdefghijklmnopqrstuvwxyz".split(''));
+console.log (lowerCaseChar);
 
 // created variable upperCase to store an array of uppercase charaters.
-var upperCase = ('ABCDEFGHIJKLMNOPQRSTUVWXYZ'.split(''));
-console.log (upperCase);
+var upperCaseChar = ('ABCDEFGHIJKLMNOPQRSTUVWXYZ'.split(''));
+console.log (upperCaseChar);
 
 // created variable lnumeric to store an array of all the numbers.
-var numeric = ('0123456789'.split(''));
-console.log (numeric);
+var numericChar = ('0123456789'.split(''));
+console.log (numericChar);
 
 // created varibale special to store an array of special.
-var special = (' !"#$%&()*+,-./:;<=>?@[\]^_`{|}~'.split(''));
-console.log (special);
+var specialChar = (' !"#$%&()*+,-./:;<=>?@[\]^_`{|}~'.split(''));
+console.log (specialChar);
 
 function generatePassword() {
   var passArray = [];
@@ -25,34 +25,33 @@ function generatePassword() {
   // welcome message alert.
   alert ("Welcome to the Password Generator. Please click on Generate Password to get started")
   // 
-  // generateBtn.addEventListener("click", length);
   // created variable length to store the prompt asking for length of the password.
   var length = prompt ("How many characters would you like for your password, please Choose between 8 and 128");
-  alert ("You choose " + length + " characters for your password. let's select your password criteria now ");
-  // generateBtn.addEventListener("click", function() {
+
   // if statment to check the length is more than 8 and less than 128.
   if (length >= 8 && length <= 128) {
+    alert ("You choose " + length + " characters for your password. let's select your password criteria now ");
     // once the length is true, following confirm happens to ask for criteria.
-    lowerCase = confirm  ("Do you want lowercase characters in your password?");
-    upperCase = confirm  ("Do you want Uppercase characters in your password?");
-    numeric = confirm  ("Do you want Numeric characters in your password?");
-    special = confirm  ("Do you want special characters in your password?");
+    var lowerCase = confirm  ("Do you want lowercase characters in your password?");
+    var upperCase = confirm  ("Do you want Uppercase characters in your password?");
+    var numeric = confirm  ("Do you want Numeric characters in your password?");
+    var special = confirm  ("Do you want special characters in your password?");
   }
   else {
   alert (" Not a valid selection. Please try again.");
+  return;
   }
-
 
   // if lower case is true, than array of lowerCase gets ADDED to the passward array variable.
   if (lowerCase) {
-    passArray = passArray.concat(lowerCase);
+    passArray = passArray.concat(lowerCaseChar);
      // Display in console
     console.log (passArray);
   }
   
   // if upper case is true, than array of uppercase gets ADDED to the passward array variable. 
   if (upperCase) {
-    passArray = passArray.concat(upperCase);
+    passArray = passArray.concat(upperCaseChar);
     
     // Display in console
     console.log (passArray);
@@ -60,34 +59,27 @@ function generatePassword() {
   
   // if numeric is true, than array of numeric gets ADDED to the passward array variable.
   if (numeric) {
-    passArray = passArray.concat(numeric);
+    passArray = passArray.concat(numericChar);
     // Display in console
     console.log (passArray);
   }
   
   // if special is true, than array of numeric gets ADDED to the passward array variable.
   if (special){  
-  passArray = passArray.concat(special);
+  passArray = passArray.concat(specialChar);
   // Display in console
   console.log (passArray);
   }
 
+  var newPassword = "";
 
 // Generate a random number
   for (var i = 0; i < length; i++) {
-    
-    // Math.floor will round down, meaning we would get a number between 0 and 9, so we'll always add 1 to bump it up.
-    var generatePassword = passArray + [Math.floor(Math.random() * lowerCase.length)];
-    var generatePassword = passArray + [Math.floor(Math.random() * upperCase.length)];
-    var generatePassword = passArray + [Math.floor(Math.random() * numeric.length)];
-    var generatePassword = passArray + [Math.floor(Math.random() * special.length)];
-
-    // Display in console
-    // console.log(generatePassword);
-    generatePassword = passArray ; 
-    return generatePassword.join ("") ;
-
+    newPassword = newPassword + passArray [Math.floor(Math.random() * passArray.length)]
   }
+
+  console.log (newPassword)
+  return newPassword;
 
 }
 
