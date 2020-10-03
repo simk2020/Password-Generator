@@ -4,7 +4,7 @@
 var generateBtn = document.querySelector("#generate");
 
 // created variable lowerCase to store an array of lowercase characters.
-var lowerCase = ('abcdefghijklmnopqrstuvwxyz'.split(''));
+var lowerCase = ("abcdefghijklmnopqrstuvwxyz".split(''));
 console.log (lowerCase);
 
 // created variable upperCase to store an array of uppercase charaters.
@@ -28,7 +28,7 @@ alert ("Welcome to the Password Generator. Please click on Generate Password to 
 // created variable length to store the prompt asking for length of the password.
 var length = prompt ("How many characters would you like for your password, please Choose between 8 and 128");
 alert ("You choose " + length + " characters for your password. let's select the criteria now ");
-
+generateBtn.addEventListener("click", function() {
 // if statment to check the length is more than 8 and less than 128.
 if (length >= 8 && length <= 128) {
   // once the length is true, following confirm happens to ask for criteria.
@@ -39,6 +39,7 @@ if (length >= 8 && length <= 128) {
 }
 else 
 alert (" Not a valid selection. Please try again.")
+}
 
 // if lower case is true, than array of lowerCase gets ADDED to the passward array variable.
 if (lowerCase) {
@@ -73,7 +74,7 @@ console.log (passArray);
 for (var i = 0; i < length; i++) {
    
   // Math.floor will round down, meaning we would get a number between 0 and 9, so we'll always add 1 to bump it up.
-  var generatePassword =passArray + [Math.floor(Math.random() * length) + 1];
+  var generatePassword =passArray + [Math.floor(Math.random() * length)];
 
   // Display in console
   console.log(generatePassword);
