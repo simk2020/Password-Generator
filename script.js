@@ -1,34 +1,37 @@
+
 // Assignment Code
 
 var generateBtn = document.querySelector("#generate");
 
-// created variable lowerCase to store an array of lowercase characters
+// created variable lowerCase to store an array of lowercase characters.
 var lowerCase = ('abcdefghijklmnopqrstuvwxyz'.split(''));
 console.log (lowerCase);
 
-// created variable upperCase to store an array of uppercase charaters
+// created variable upperCase to store an array of uppercase charaters.
 var upperCase = ('ABCDEFGHIJKLMNOPQRSTUVWXYZ'.split(''));
 console.log (upperCase);
 
-// created variable lnumeric to store an array of all the numbers 
+// created variable lnumeric to store an array of all the numbers.
 var numeric = ('0123456789'.split(''));
 console.log (numeric);
 
-// created varibale special to store an array of special
-var special = ('!@#$%^&*()_+'.split(''));
+// created varibale special to store an array of special.
+var special = (' !"#$%&()*+,-./:;<=>?@[\]^_`{|}~'.split(''));
 console.log (special);
 
 var passArray = [];
 
-// welcome message alert 
+// welcome message alert.
 alert ("Welcome to the Password Generator. Please click on Generate Password to get started")
-
-// created variable length to store the prompt asking for length of the password
+// 
+// generateBtn.addEventListener("click", length);
+// created variable length to store the prompt asking for length of the password.
 var length = prompt ("How many characters would you like for your password, please Choose between 8 and 128");
 alert ("You choose " + length + " characters for your password. let's select the criteria now ");
 
-// if statment to check the length is more than 8 and less than 128
+// if statment to check the length is more than 8 and less than 128.
 if (length >= 8 && length <= 128) {
+  // once the length is true, following confirm happens to ask for criteria.
   lowerCase = confirm  ("Do you want lowercase characters in your password?");
   upperCase = confirm  ("Do you want Uppercase characters in your password?");
   numeric = confirm  ("Do you want Numeric characters in your password?");
@@ -61,6 +64,7 @@ if (numeric) {
 // if special is true, than array of numeric gets ADDED to the passward array variable.
 if (special){  
 passArray = passArray.concat(special);
+// Display in console
 console.log (passArray);
 
 }
